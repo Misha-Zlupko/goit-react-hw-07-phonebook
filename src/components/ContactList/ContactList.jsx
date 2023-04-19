@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFiltersContacts } from '../../redux/selectors';
 import { deliteContact, fetchContacts } from 'redux/operations';
 import { useEffect } from 'react';
+import { ContactWrapper } from './ContactList.style';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const ContactList = () => {
   };
 
   return (
-    <div>
+    <ContactWrapper>
       <ul>
         {getFilteredContacts.map(({ name, phone, id }) => (
           <li key={name}>
@@ -28,6 +29,6 @@ export const ContactList = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </ContactWrapper>
   );
 };

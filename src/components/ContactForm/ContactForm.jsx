@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { getItem } from 'redux/selectors';
+import { ContactFormsWrapper } from './ContactForm.styled';
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const [state, setState] = useState({ name: '', number: '' });
@@ -23,9 +24,9 @@ export const ContactForm = () => {
     setState(prevState => ({ ...prevState, [name]: value }));
   };
   return (
-    <div>
+    <ContactFormsWrapper>
       <p>Name</p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <input
           value={state.name}
           type="text"
@@ -47,6 +48,6 @@ export const ContactForm = () => {
         />
         <button type="submit">Add contact</button>
       </form>
-    </div>
+    </ContactFormsWrapper>
   );
 };
